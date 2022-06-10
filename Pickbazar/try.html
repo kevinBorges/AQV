@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>navbar</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/navbar_one.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <style>
+    .navbarOne{
+      background-color: rgb(255, 255, 255);
+}
+.logo {
+    margin-left: 33px;
+    width: 100px;
+    height: 17px;
+    margin-top: 0px;
+}
+
+.offer {
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgb(13, 17, 54);
+  line-height: 1.2em;
+  transition: all 0.15s ease-in-out 0s;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+.help {
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgb(13, 17, 54);
+  line-height: 1.2em;
+  transition: all 0.15s ease-in-out 0s;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    margin-top: 0px;
+}
+.join{
+  padding: 0px 15px;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease 0s;
+border-radius: 6px;
+appearance: none;
+display: flex;
+-moz-box-align: center;
+align-items: center;
+-moz-box-pack: center;
+justify-content: center;
+flex-shrink: 0;
+text-align: center;
+height: 38px;
+text-decoration: none;
+font-family: inherit;
+border: 0px none;
+color: rgb(255, 255, 255);
+background-color: rgb(0, 158, 127);
+}
+.help:hover, .offer:hover {
+    text-decoration: none;
+    color: rgb(0, 158, 127);
+}
+.join:hover {
+    background-color: rgb(1, 147, 118);
+}
+  </style>
+</head>
+<body>
+
+
+  
+
+    <section class="navbarOne">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto col-9">
+            <li class="nav-item active">
+              <select class="vodiapicker ">
+                <option value="grocery" class="test" data-thumbnail="images/apple.svg">
+                  Grocery</option>
+                      <option value="bakery" data-thumbnail="images/bakery.svg">Bakery</option>
+                      <option value="makeup" data-thumbnail="images/make-up.svg">Makeup</option>
+                      <option value="bags" data-thumbnail="images/shopping-bags.svg">Bags</option>
+                      <option value="clothing" data-thumbnail="images/clothes.svg">Clothing</option>
+                      <option value="furniture" data-thumbnail="images/furniture.svg">Furniture</option>
+                      <option value="book" data-thumbnail="images/book.svg">Book</option>
+                      <option value="mdcn" data-thumbnail="images/medicines.svg">Medicine</option>
+                </select>
+      
+              <div class="lang-select mb-3 col-4  ">
+                <div class="box">
+                  <button class="btn-select" value=""></button>
+                  <!-- <span><img class="arrow" src="images/Arrow_bottom.png"/></span> -->
+                </div>
+              
+                <div class="b">
+                  <ul id="a"></ul>
+                </div>
+              </div> 
+            </li>
+            
+          </ul>
+          <div class="form-inline my-2 my-lg-0 col-3">
+            <div class="row">
+              <div class="col-4">
+                <a href="#" class="offer">Offer</a>
+              </div>
+              <div class="col-4">
+                <a href="#" class="help">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>Help
+                </a>
+              </div>
+              <div class="col-4">
+                <a href="#" class="join" data-toggle="modal" data-target="#exampleModal">Join</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+		<!-- modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <p class="modal-title" id="exampleModalLabel">Welcome Back</p>
+		        <p class="log">Login with your Email & Password</p>
+		   
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body mb-3">
+		       	<div class="input-group mb-3">
+		       		<form>
+		       			<input type="email" class="input_form" placeholder="demo@demo.com" required height="48px" aria-label="email" aria-describedby="basic-addon1">
+				  		<input type="password" class="input_form" placeholder="demo" required height="48px" aria-label="password" aria-describedby="basic-addon1">
+				  		<button type="submit" class="input_model" style="width: 100%;">Continue</button>
+		       		</form>
+				</div>
+				<div class="or"><span>or</span></div>
+				<div class="input-group mb-3">
+					<form>
+					<button  class="input_model" style="width: 100%; background-color: rgb(66, 103, 178); margin-bottom: 10px;">
+					<div class="in">
+						<svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 17 17"><path data-name="_ionicons_svg_logo-facebook (1)" d="M80.061,64H64.939a.939.939,0,0,0-.939.939V80.061a.939.939,0,0,0,.939.939H72.5V74.271H70.468V71.792H72.5V69.959a3.23,3.23,0,0,1,3.484-3.391c.939,0,1.948.071,2.183.1v2.293H76.6c-1.067,0-1.271.5-1.271,1.248v1.58h2.541l-.332,2.479H75.333V81h4.728A.939.939,0,0,0,81,80.061V64.939A.939.939,0,0,0,80.061,64Z" transform="translate(-64 -64)" fill="currentColor"></path></svg>
+
+					</div>Continue with Facebook</button>
+				<button  class="input_model" style="width: 100%; background-color:  rgb(66, 133, 244); margin-bottom: 10px;">
+					<div class="in">
+						<svg xmlns="http://www.w3.org/2000/svg" width="17px" height="17px" viewBox="0 0 16.677 17"><path d="M68.579,55.29l-.086-.364H60.584v3.348h4.725a4.73,4.73,0,0,1-4.627,3.556,5.533,5.533,0,0,1-3.724-1.484,5.316,5.316,0,0,1-1.586-3.752,5.483,5.483,0,0,1,1.557-3.748,5.3,5.3,0,0,1,3.7-1.447,4.825,4.825,0,0,1,3.147,1.226l2.379-2.367a8.417,8.417,0,0,0-5.6-2.158A8.391,8.391,0,0,0,52,56.6,8.541,8.541,0,0,0,54.326,62.5a8.873,8.873,0,0,0,6.4,2.6,7.891,7.891,0,0,0,5.747-2.416,8.486,8.486,0,0,0,2.207-5.878,9.788,9.788,0,0,0-.1-1.516Z" transform="translate(-52 -48.1)" fill="currentColor"></path></svg>
+					</div>
+				Continue with Google</button>
+				</form>
+				</div>
+				<p class=" wdkJZ" style="padding: 20px 0px;     text-align: center;">Don't have any account? <button class=" gMLTNm">Sign Up</button></p>
+				
+		      </div>
+		      <div class="modal-footer">
+		        <p class="wdkJZ">Forgot your password? <button class=" gMLTNm">Reset It</button></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+<!-- script -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		
+//test for iterating over child elements
+$('.b').hide();
+var langArray = [];        
+$('.vodiapicker option').each(function(){
+  var img = $(this).attr("data-thumbnail");
+  var text = this.innerText;
+  var value = $(this).val();
+  /*var item = '<span><div><img src="'+img+'" alt="" value="'+value+'"/></div><span>'+text+'</span></span>';*/
+  var item = '<li><img src="'+ img +'" alt="" value="'+value+'" /><span>'+ text +'</span></li>';
+  langArray.push(item);
+})
+
+$('#a').html(langArray);
+
+//Set the button value to the first el of the array
+$('.btn-select').html(langArray[0]);
+$('.btn-select').attr('onclick', 'en');
+
+//change button stuff on click
+$('#a li').click(function(){
+   var img = $(this).find('img').attr("src");
+   var value = $(this).find('img').attr('value');
+   var text = this.innerText;
+   var item = '<li><img src="'+ img +'" alt="" /><span>'+ text +'</span></li>';
+  $('.btn-select').html(item);
+  $('.btn-select').attr('onclick', value);
+  $(".b").toggle();
+  //console.log(value);
+});
+
+$(".btn-select").click(function(){
+        $(".b").toggle();
+       // location.href=$(".btn-select").attr("onclick");
+    });
+
+	</script>
+
+</body>
+</html>

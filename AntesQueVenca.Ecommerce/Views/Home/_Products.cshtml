@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AntesQueVenca.Ecommerce.ViewModels.ProductViewModel>
+
+<style>
+
+    .product-price-from {
+        font-family: Lato, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: darkred;
+        text-decoration: line-through;
+    }
+
+    .product-price {
+        font-family: Lato, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: rgb(0, 158, 127);
+    }
+
+    .category {
+        font-family: Lato, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: rgb(0, 158, 127);
+    }
+</style>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card" style="border-radius: 25px;">
+                @*card-border-c-green*@
+                <div class="card-block">
+                    @*<div class="card-header">
+                            <label class="card-title">@item.Name</label>
+                        </div>*@
+                    <div class="card-header-pills">
+                        <label class="card-subtitle category">@item.CategoryName</label>
+                        <label class="card-title">@item.Name</label>
+                        <div class="task-board m-0 mt-2 float-right">
+                            <label class="card-text">
+                                Válido até:
+                                <strong class="label label-warning">@item.ExpirationDate</strong>
+                            </label>
+                            <label class="card-text">
+                                Restam:
+                                <strong class="label label-info">@item.Quantity</strong>
+                            </label>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <img src="@item.Image" class="img card-img-top" style="max-height: 200px !important; max-width:200px !important; min-height:100px !important; min-width: 100px !important;" />
+
+                        <div class="mt-2">
+                            <div class="task-board m-0 float-left">
+                                De: <label class="product-price-from">R$ @item.PriceFrom</label>
+                                @*Por:*@ <label class="product-price">R$ @item.Price</label>
+                            </div>
+                            <div class="task-board m-0 float-right">
+                                <img src="~/img/remove.png" style="height:32px;width:32px;" class="i-block remove-to-cart" data-quantity="@item.Quantity" data-id="@item.ProductId" data-price="@item.Price.ToString().Replace(",", ".")" data-clipboard-text="feather icon-plus" data-filter="icon-plus" data-toggle="tooltip" title="" data-original-title="Remover" />
+                                <img src="~/img/add.png" style="height:32px;width:32px;" class="i-block add-to-cart" data-quantity="@item.Quantity" data-id="@item.ProductId" data-price="@item.Price.ToString().Replace(",", ".")" data-name="@item.Name" data-image-icon="@item.Image" data-price-from="@item.PriceFrom.ToString().Replace(",", ".")" data-unit-price="@item.Price.ToString().Replace(",", ".")" data-clipboard-text="feather icon-plus" data-filter="icon-plus" data-toggle="tooltip" title="" data-original-title="Adicionar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer-pills mt-4">
+                        <div class="task-board m-0 float-right">
+                            <div class="i-main">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

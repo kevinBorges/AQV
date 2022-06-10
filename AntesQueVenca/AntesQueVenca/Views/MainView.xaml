@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AntesQueVenca.Views.MainView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:templates="clr-namespace:AntesQueVenca.Templates"
+             Visual="Material"
+             xmlns:customControls="clr-namespace:AntesQueVenca.CustomControls">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleImage" TargetType="Image">
+                <Setter Property="HeightRequest" Value="28" />
+                <Setter Property="Margin" Value="10,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <CarouselView
+                x:Name="CarouselView"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                CurrentItemChanged="CarouselView_CurrentItemChanged"
+                ItemTemplate="{templates:AppPageDataTemplateSelector}"
+                ItemsSource="{Binding Pages}" />
+
+            <OnIdiom x:TypeArguments="View">
+                <OnIdiom.Phone>
+                    <FlexLayout
+                        Padding="0,12,0,12"
+                        AbsoluteLayout.LayoutBounds="0,0,1,100"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        BackgroundColor="{StaticResource GreenPrincipalColor}">
+
+                        <FlexLayout AlignItems="Center" FlexLayout.Grow="0.4" Margin="10,0,0,0">
+                            <Image Source="logoAQV" WidthRequest="180" HeightRequest="60" Aspect="AspectFit">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuIcon_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </FlexLayout>
+                        
+
+                        <FlexLayout AlignItems="Center" FlexLayout.Grow="1" Margin="20,0,0,0">
+                            <StackLayout>
+                            <Label Text="Olá, User!" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource GreenSecundaryColor}" />
+                            <Label Text="Franco da Rocha - SP" FontSize="12" TextColor="{StaticResource GreenSecundaryColor}" />
+                            </StackLayout>
+                        </FlexLayout>
+
+                        <FlexLayout
+                            AlignItems="Center"
+                            FlexLayout.Grow="0.2"
+                            JustifyContent="End">
+                            <Image Source="basketIcon" Style="{StaticResource TitleImage}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CartIcon_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </FlexLayout>
+                    </FlexLayout>
+                </OnIdiom.Phone>
+
+                <OnIdiom.Tablet>
+                    <Grid AbsoluteLayout.LayoutBounds="0,0,1,100" AbsoluteLayout.LayoutFlags="WidthProportional">
+                        <Image Aspect="AspectFill" Source="gradient" />
+
+                        <FlexLayout Padding="20,24,20,0" BackgroundColor="Transparent">
+                            <FlexLayout AlignItems="Center" FlexLayout.Grow="1">
+                                <Image Source="title_logo" Style="{StaticResource TitleImage}" />
+                            </FlexLayout>
+
+                            <FlexLayout
+                                AlignItems="Center"
+                                FlexLayout.Grow="1"
+                                JustifyContent="End">
+                                <Image Source="title_search" Style="{StaticResource TitleImage}" />
+                                <Image Source="title_config" Style="{StaticResource TitleImage}" />
+                                <Image Source="title_profile" Style="{StaticResource TitleImage}" />
+                            </FlexLayout>
+                        </FlexLayout>
+                    </Grid>
+                </OnIdiom.Tablet>
+            </OnIdiom>
+
+
+
+            <FlexLayout x:Name="Footer" AbsoluteLayout.LayoutBounds="0,1,1,80" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" AlignItems="Center" BackgroundColor="{StaticResource GreenSecundaryColor}" BindableLayout.ItemsSource="{Binding Pages}" JustifyContent="Center">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="24,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </StackLayout.GestureRecognizers>
+
+                            <Image WidthRequest="24" HeightRequest="24" Source="{Binding Icon}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState x:Name="UnSelected">
+                                            <VisualState.Setters>
+                                                <Setter Property="Source" Value="{Binding Icon}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="Source" Value="{Binding Icon, StringFormat='{0}_selected'}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Image>
+
+                            <Label HorizontalTextAlignment="Center" FontSize="13" Text="{Binding Name}" TextColor="White">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState x:Name="UnSelected">
+                                            <VisualState.Setters>
+                                                <Setter Property="TextColor" Value="White" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="TextColor" Value="{StaticResource GreenPrincipalColor}" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

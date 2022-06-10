@@ -1,0 +1,30 @@
+.slider{margin-top: 20px;}
+
+.cPbqFF {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(13, 17, 54);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px;
+    outline: 0px;
+    padding: 0px;
+    border: 0px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    z-index: 1;
+    cursor: pointer;
+}
+.carousel-control-prev {
+    left: 20px;
+}
+.carousel-control-next {
+    right: 20px;
+}
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {color: rgb(13, 17, 54);}

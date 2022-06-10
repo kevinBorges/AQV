@@ -1,0 +1,40 @@
+﻿<div id="confirmationModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4">Reserva finalizada com sucesso</h5>
+                <button type="button" class="close" onclick="atlPage()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <label class="form-control">Ao chegar na loja <span style="color:red;">portando seu CPF</span>, diga que reservou pelo Antes Que Vença e mostre o seu código <span style="color:red;">de reserva</span></label>
+                <label class="form-control">Atenção! anote seu código. Ele tem validade de 48h e você não poderá consultar em outro lugar. Em instantes você receberá um E-mail com o resumo da reserva. <span style="color:red;">Caso não receba, verifique sua caixa de SPAM</span></label>
+                <h4>Obrigado por reservar com o Antes Que Vença! :)</h4>
+                <div class="row mt-1 ml-1">
+                    <div class="form-group">
+                        <span style="font-size: 28px;">Seu código: </span>
+                        <label class="text-success" id="confirmationCode" style="font-size: 28px;" />
+                    </div>
+                </div>
+                <div class="row mt-1 ml-1">
+                    <div class="form-group">
+                        <span style="font-size: 28px;">Valido até: </span>
+                        <label class="text-success" style="font-size: 28px;" id="confirmationDate" />
+                    </div>
+                </div>
+                <div class="row mt-1 ml-1">
+                    <h5>Para cancelamento da reserva, <a href="https://api.whatsapp.com/send?phone=5511951466837&text=SAC">clique aqui</a> e entre em contato com nosso canal de comunicação via WhatsApp informando seu CPF e o código da reserva.</h5>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span style="color:red;">(*) Reserva sujeita à disponibilidade de estoque do VAREJISTA</span>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="atlPage()" aria-label="Close">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function atlPage() {
+        location.reload();
+    }
+</script>

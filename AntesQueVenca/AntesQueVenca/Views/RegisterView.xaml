@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntesQueVenca.Views.RegisterView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource GreenPrincipalColor}"
+             xmlns:customControls="clr-namespace:AntesQueVenca.CustomControls">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Image Source="logoAQV" Aspect="AspectFit" HeightRequest="64" WidthRequest="64" Margin="0,20,0,20" />
+                <Frame CornerRadius="45" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <customControls:RoudedBorderedCustomEntry BorderWidth="3" BorderColor="{StaticResource GreenSecundaryColor}" IsCurvedCornersEnabled="true" CornerRadius="15" Placeholder="Nome *" TextColor="{StaticResource GreenPrincipalColor}" Text="{Binding Entity.Person.Name}" />
+                        <customControls:RoudedBorderedCustomEntry BorderWidth="3" BorderColor="{StaticResource GreenSecundaryColor}" IsCurvedCornersEnabled="true" CornerRadius="15" Placeholder="E-mail *" TextColor="{StaticResource GreenPrincipalColor}" Text="{Binding Entity.Person.Email}" Keyboard="Email" />
+                        <customControls:RoudedBorderedCustomEntry BorderWidth="3" BorderColor="{StaticResource GreenSecundaryColor}" IsCurvedCornersEnabled="true" CornerRadius="15" Placeholder="Telefone *" TextColor="{StaticResource GreenPrincipalColor}" Text="{Binding Phone}" />
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource GreenSecundaryColor}" Margin="0,20,0,20" />
+                        <customControls:RoudedBorderedCustomEntry BorderWidth="3" BorderColor="{StaticResource GreenSecundaryColor}" IsCurvedCornersEnabled="true" CornerRadius="15" Placeholder="Senha *" TextColor="{StaticResource GreenPrincipalColor}" Text="{Binding Entity.Password}" IsPassword="True" />
+                        <customControls:RoudedBorderedCustomEntry BorderWidth="3" BorderColor="{StaticResource GreenSecundaryColor}" IsCurvedCornersEnabled="true" CornerRadius="15" Placeholder="Repita a senha *" TextColor="{StaticResource GreenPrincipalColor}" Text="{Binding PasswordConfirmation}" IsPassword="True" />
+                        <BoxView HeightRequest="1" BackgroundColor="{StaticResource GreenSecundaryColor}" Margin="0,20,0,20" />
+                        <StackLayout Orientation="Horizontal">
+                            <Switch ThumbColor="{StaticResource GreenSecundaryColor}" />
+                            <Label Text="Aceito receber mais informações por E-mail" TextColor="{StaticResource GreenSecundaryColor}" FontSize="10" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch ThumbColor="{StaticResource GreenSecundaryColor}" />
+                            <Label Text="Aceito Termos e Condições e Política de Privacidade" TextColor="{StaticResource GreenSecundaryColor}" FontSize="10" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Button Text="Continuar" Command="{Binding RegisterCommand}" TextColor="White" BackgroundColor="{StaticResource GreenSecundaryColor}" CornerRadius="15" Margin="10" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

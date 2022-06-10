@@ -1,0 +1,163 @@
+﻿@model IEnumerable<AntesQueVenca.Ecommerce.ViewModels.ProductViewModel>
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+
+
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container" style="margin-left:4%;margin-right:4%;">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    @*<h5 class="m-b-10">Produtos</h5>*@
+                                </div>
+                                <!--<ul class="breadcrumb">-->
+                                @*<li class="breadcrumb-item"><a href="/Dashboard/@Pages.Dashboard1.Value"><i class="feather icon-home"></i></a></li>*@
+                                <!--<li class="breadcrumb-item"><a href="#">Invoice</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Invoice List</a></li>
+                                </ul>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <form id="filterForm" asp-action="GetPartial" asp-controller="Home" method="get" data-ajax="true" data-ajax-method="get" data-ajax-update="#products" data-ajax-mode='replace' data-ajax-url="@Url.Action("GetPartial","Home")">
+                            <div class="row">
+                                <!-- [ Invoice-list ] start -->
+                                <div class="col-xl-2 col-lg-12">
+                                    <div class="card task-board-left">
+                                        <!--<img src="~/img/LogoAQV.png" style="max-height: 221px; max-width: 221px; min-height:50px; min-width:50px; margin-left: 5%;" />
+                                        <img src="~/img/logoTakeo.jpeg" style="max-height:221px; max-width:300px;" />-->
+                                        @*class="float-right" style="margin-right:5%;"*@
+                                        <div class="card-header">
+                                            <h6>Parceiro - Takeo Perfumaria</h6>
+                                        </div>
+                                        <div class="card-block">
+                                            @*<div class="input-group mb-3">
+                                                    <input type="text" class="form-control add_task_todo" id="productName" name="productName" placeholder="Buscar por..." required="">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-success btn-icon btn-msg-send" type="submit" onclick="filtrar();"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>*@
+                                            <div class="task-right-header-users">
+                                                <span class="f-w-400" data-toggle="collapse">Categorias</span>
+                                                <i class="fas fa-caret-down float-right m-t-5"></i>
+                                            </div>
+                                            <input type="hidden" id="productName" name="productName" value="" />
+                                            <input type="hidden" id="category" name="category" value="" />
+                                            <input type="hidden" id="dateFilter" name="dateFilter" value="" />
+                                            <input type="hidden" id="precoFilter" name="precoFilter" value="" />
+                                            <input type="hidden" id="dateValFilter" name="dateValFilter" value="" />
+                                            @if (ViewBag.Categories != null)
+                                            {
+                                                @foreach (var category in ViewBag.Categories)
+                                                {
+                                                    <div class="user-box assign-user taskboard-right-users">
+                                                        <div class="media mb-2">
+                                                            <div class="media-left media-middle mr-3">
+                                                                <a href="#">
+                                                                    <img class="media-object img-radius" src="@category.Image" alt="@category.Name">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body mt-3">
+                                                                <a href="#" data-category="@category.CategoryId" onclick="$('#category').val($(this).data('category')); $('#filterForm').submit()">
+                                                                    <h6>@category.Name</h6>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-10 col-lg-12 filter-bar invoice-list">
+                                    <nav class="navbar m-b-30 p-10">
+                                        <ul class="nav">
+                                            <li class="nav-item f-text active">
+                                                <a class="nav-link text-secondary" href="#">Filtrar: <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle text-secondary" id="bydate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-clock"></i> Por data de validade</a>
+                                                <div class="dropdown-menu" aria-labelledby="bydate">
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(1); $('#filterForm').submit()">Todos</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(2); $('#filterForm').submit()">Hoje</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(3); $('#filterForm').submit()">Essa semana</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(4); $('#filterForm').submit()">1 mês</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(5); $('#filterForm').submit()">3 Meses</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(6); $('#filterForm').submit()">6 Meses</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle text-secondary" id="byvalidade" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Validade</a>
+                                                <div class="dropdown-menu" aria-labelledby="byvalidade">
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateValFilter').val(1); $('#filterForm').submit()">Maior Validade</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateValFilter').val(2); $('#filterForm').submit()">Menor Validade</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle text-secondary" id="bypreco" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Preço</a>
+                                                <div class="dropdown-menu" aria-labelledby="bypreco">
+                                                    <a class="dropdown-item" href="#" onclick="$('#precoFilter').val(1); $('#filterForm').submit()">Maior Preço</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#precoFilter').val(2); $('#filterForm').submit()">Menor Preço</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item f-text active">
+                                                <a class="nav-link text-primary" href="#" onclick="$('#dateValFilter').val(null); $('#precoFilter').val(null); $('#dateFilter').val(null); $('#category').val(0); $('#productName').val(null); $('#filterForm').submit()">Limpar Filtro</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <div id="products">
+                                        <partial name="_Products" />
+                                    </div>
+                                </div>
+                                <!-- [ Invoice-list ] end -->
+
+                            </div>
+                        </form>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- [ Main Content ] end -->
+
+<partial name="CheckoutModal" />
+<partial name="ConfirmationModal" />
+<partial name="ConfirmationModalDelivery" />
+
+@section Styles{
+
+}
+
+@section Scripts{
+    <!-- invoice-list js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/assets/js/pages/invoice-list.js"></script>
+    <script src="~/js/Home/CheckoutModal.js"></script>
+    <script src="~/assets/plugins/inputmask/js/inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".loader-bg").hide();
+        });
+
+    </script>
+
+
+}

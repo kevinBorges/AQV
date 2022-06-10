@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntesQueVenca.Views.WelcomeView"
+             BackgroundColor="{StaticResource GreenSecundaryColor}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame BackgroundColor="White" CornerRadius="45" HasShadow="True" Margin="0,30,0,0" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Image Source="logoAQV" />
+                    <Label Text="Salvando produtos" TextColor="{StaticResource OrangePrincipalColor}" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="Evitando desperdícios!" TextColor="{StaticResource OrangePrincipalColor}" FontSize="20" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="Seja bem vindo!" TextColor="{StaticResource GreenSecundaryColor}" FontSize="35" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" />
+                    <Button Text="Começar" TextColor="White" BackgroundColor="{StaticResource GreenSecundaryColor}" CornerRadius="15" VerticalOptions="EndAndExpand" Clicked="Button_Clicked" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

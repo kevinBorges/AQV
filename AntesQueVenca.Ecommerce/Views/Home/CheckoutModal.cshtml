@@ -1,0 +1,234 @@
+﻿<div id="checkoutModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width:max-content !important; min-width:60% !important; max-width:100% !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4" id="myLargeModalLabel">Finalizar reserva</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="userDataForm">
+                    <fieldset class="ml-2">
+                        <legend><span>Seus dados</span></legend>
+                        <div class="row">
+                            <div class="col-sm-6 mt-1">
+                                <input type="hidden" value="0" id="deliveryEligible" />
+                                <div class="form-group">
+                                    <label class="control-label">Digite seu Nome:</label>
+                                    <input type="text" placeholder="Digite seu nome" class="form-control" id="userName" name="userName" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-1">
+                                <div class="form-group">
+                                    <label class="control-label">Digite seu Telefone:</label>
+                                    <input type="text" placeholder="Digite seu Telefone" class="form-control phone" id="userPhone" name="userPhone" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mt-1">
+                                <div class="form-group">
+                                    <label class="control-label">Digite seu E-mail:</label>
+                                    <input type="text" placeholder="Digite seu E-mail" class="form-control" id="userEmail" name="userEmail" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-1">
+                                <div class="form-group">
+                                    <label class="control-label">Digite seu CPF:</label>
+                                    <input type="text" placeholder="Digite seu CPF" class="form-control cpf" id="userCPF" name="userCPF" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="mt-4 ml-2">
+                        <legend><span>Como deseja receber?</span></legend>
+                        <div class="row">
+                            <div class="form-check ml-4">
+                                <input class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" onclick="loadDeliveryType(1);">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Retirada
+                                </label>
+                            </div>
+                            <div class="form-check ml-2">
+                                <input class="form-check-input" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2" onclick="loadDeliveryType(2);">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Entrega
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div id="orderWithDrawal" style="display:none;" class="mt-4 ml-2">
+                        <strong class="text text-success" style="font-size:16px;">Ao finalizar, você receberá um código que deverá ser usado na loja ao retirar os produtos para aplicar o desconto.</strong>
+                        <div class="alert alert-info">
+                            <strong class="text text-info" style="font-size:12px;"> *** Você deverá retirar o produto em: Takeo Perfumaria - Av. Dr. Eduardo Cotching, 1970 - Vila Formosa, São Paulo - SP.</strong>
+                            <strong class="text text-info" style="font-size:12px;"> Horário de retirada: De segunda-feira a sábado, das 09:30 às 18:00.</strong>
+                        </div>
+                    </div>
+                    <div id="orderDelivery" style="display:none;" class="mt-4 ml-2">
+                        <strong class="text text-success" style="font-size:18px;">Confirme seu cep, e agende um horário de entrega. </strong>
+                        <div class="alert alert-info">
+                            @*<div class="row">
+                                    <strong class="text text-info" style="font-size:12px;"> *** Taxa de entrega R$ 9,90.</strong>
+                                </div>*@
+                            <div class="row">
+                                <strong class="text text-info" style="font-size:12px;"> *** Você receberá os produtos em até 3 dias úteis.</strong>
+                            </div>
+                            <div class="row">
+                                <strong class="text text-info" style="font-size:12px;"> *** Nossa equipe entrará em contato no dia da entrega para confirmar a entrega.</strong>
+                            </div>
+                            <div class="row">
+                                <strong class="text text-info" style="font-size:12px;"> *** Você pode optar por pagar em dinheiro ou cartão de crédito/débito, ambos no momento da entrega.</strong>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mt-1">
+                            <div class="form-group">
+                                <label class="control-label">Digite seu CEP:</label>
+                                <input type="text" placeholder="Digite seu CEP" class="form-control cep" id="userCEP" name="userCEP" onchange="searchCep(this.value);" />
+                            </div>
+                        </div>
+                        <div id="address" style="display:none;" class="ml-2">
+                            <div class="row">
+                                <div class="col-sm-8 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Logradouro:</label>
+                                        <input type="text" placeholder="Logradouro" class="form-control" id="userStreet" name="userStreet" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Bairro:</label>
+                                        <input type="text" placeholder="Bairro" class="form-control" id="userNeighbor" name="userNeighbor" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Cidade:</label>
+                                        <input type="text" placeholder="Cidade" class="form-control" id="userCity" name="userCity" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">UF:</label>
+                                        <input type="text" placeholder="UF" class="form-control" id="userUF" name="userUF" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Número:</label>
+                                        <input type="text" placeholder="Número" class="form-control" id="userStreetNumber" name="userStreetNumber" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Destinatário:</label>
+                                        <input type="text" placeholder="Destinatário" class="form-control" id="adreessOwner" name="adreessOwner" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Complemento:</label>
+                                        <input type="text" placeholder="Complemento" class="form-control" id="userComplement" name="userComplement" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mt-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Tipo:</label>
+                                        <select id="addressType" name="addressType" class="form-control">
+                                            <option value="0">-- Selecione --</option>
+                                            <option value="1">Casa</option>
+                                            <option value="2">Apartamento</option>
+                                            <option value="3">Comercial</option>
+                                            <option value="4">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mt-1">
+                                    <div class="form-group">
+                                        <label class="text-sm-left">Forma de pagamento:</label>
+                                        <select id="paymentType" name="paymentType" class="form-control">
+                                            <option value="0">-- Selecione --</option>
+                                            <option value="1">Dinheiro</option>
+                                            @*<option value="2">Pix</option>*@
+                                            <option value="3">Cartão Crédito</option>
+                                            <option value="4">Cartão Débito</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 mt-1" id="divTroco" style="display:none">
+                                    <div class="form-group">
+                                        <label class="control-label">Troco para:</label>
+                                        <input type="text" placeholder="Troco" class="form-control money" id="thing" name="thing" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- [ Main Content ] start -->
+                <div class="row mt-2">
+                    <!-- [ Invoice ] start -->
+                    <div class="container" id="printTable">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-responsive invoice-detail-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Produto</th>
+                                                    <th class="col-sm-2">Descrição</th>
+                                                    <th>V. na loja</th>
+                                                    <th>Desconto</th>
+                                                    <th>V. unitário</th>
+                                                    <th>Qtde</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="productsTbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                                    <input type="hidden" id="deliveryPrice" />
+                                        <table class="table table-responsive invoice-table invoice-total">
+                                            <tbody>
+                                                <tr class="frete" style="visibility:hidden;">
+                                                    <th>Subtotal:</th>
+                                                    <td><span id="subTotal"></span></td>
+                                                </tr>
+                                                <tr id="frete" class="frete" style="visibility:hidden;">
+                                                    @*<th>Frete:</th>
+                                                        <td>R$ 9,90</td>*@
+                                                </tr>
+                                                <tr class="text-info">
+                                                    <td>
+                                                        <h5 class="text-primary m-r-10">Total :</h5>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="text-primary"><span id="orderTotalPrice"></span></h5>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="float-right">
+                            <button class="btn btn-success" type="button" onclick="generateCode()">Finalizar e gerar código</button>
+                        </div>
+                    </div>
+                    <!-- [ Invoice ] end -->
+                </div>
+                <!-- [ Main Content ] end -->
+            </div>
+            <div class="modal-footer">
+                <strong class="text text-primary float-left" style="font-size:12px;">*** Sujeito à disponibilidade de estoque</strong>
+                <span>Ao finalizar você aceita os <a target="_blank" href="http://www.antesquevenca.com.br/termos.html"> Termos e Condições</a></span>
+            </div>
+        </div>
+    </div>
+</div>

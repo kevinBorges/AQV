@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AntesQueVenca.ContentViews.HomeContentView"
+             xmlns:customControls="clr-namespace:AntesQueVenca.CustomControls"
+             BackgroundColor="#F5F4F4">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+                <customControls:RoudedBorderedCustomSearchBar IsCurvedCornersEnabled="True" BorderColor="{StaticResource GreenSecundaryColor}" BorderWidth="3" CornerRadius="15" Placeholder="O que está procurando?" PlaceholderColor="{StaticResource GreenSecundaryColor}" Margin="20" />
+                <Label Text="Mercados perto de você..." FontSize="20" FontAttributes="Bold" TextColor="{StaticResource GreenSecundaryColor}" Margin="20,0,0,0" />
+                <CollectionView BackgroundColor="#F5F4F4" ItemsSource="{Binding ViewModel.Categories}" SelectionMode="Single" Margin="10" HeightRequest="300">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3" VerticalItemSpacing="5" HorizontalItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="White" HeightRequest="108" WidthRequest="108">
+                                    <Image Source="extraIcon" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" />
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Ver todos" BackgroundColor="{StaticResource GreenSecundaryColor}" TextColor="White" CornerRadius="15" Margin="20,0,20,0" />
+                <Label Text="Pesquise por categorias..." FontSize="20" FontAttributes="Bold" TextColor="{StaticResource GreenSecundaryColor}" Margin="20,0,0,0" />
+                <CollectionView ItemsSource="{Binding ViewModel.Categories}" BackgroundColor="#F5F4F4" SelectionMode="Single" Margin="10" HeightRequest="400">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="4" VerticalItemSpacing="5" HorizontalItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="White" HeightRequest="124" WidthRequest="124">
+                                <StackLayout>
+                                    <Image Source="hortifrutiIcon" Aspect="AspectFit" HeightRequest="64" WidthRequest="64" />
+                                    <Label Text="Categoria" HorizontalOptions="FillAndExpand" FontSize="10" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

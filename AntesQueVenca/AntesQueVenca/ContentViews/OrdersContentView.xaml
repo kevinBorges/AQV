@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AntesQueVenca.ContentViews.OrdersContentView"
+             BackgroundColor="#F5F4F4">
+  <ContentView.Content>
+        <StackLayout Margin="{OnIdiom Phone='0,100,0,0', Tablet='0'}">
+            <ListView ItemsSource="{Binding ViewModel.MyOrders}" HasUnevenRows="True" SeparatorVisibility="None" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="0,10,0,0">
+                                <Label Text="Dom, 18 de outubro de 2020" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource GreenSecundaryColor}" />
+                                <Frame BackgroundColor="White" HasShadow="True" CornerRadius="15">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="sugestMarketIcon" Aspect="AspectFit" HeightRequest="48" WidthRequest="48" />
+                                            <StackLayout>
+                                                <Label Text="Nome do supermercado" FontAttributes="Bold" />
+                                                <Label Text="Status" FontSize="12" TextColor="{StaticResource OrangePrincipalColor}" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,5" />
+                                        <Label Text="2 Meu item 1" FontSize="12" />
+                                        <Label Text="3 Meu item 2" FontSize="12" />
+                                        <Label Text="4 Meu item 3" FontSize="12" />
+                                        <Label Text="5 Meu item 4" FontSize="12" />
+                                        <BoxView HeightRequest="1" Color="LightGray" Margin="0,5,0,0" />
+                                        <StackLayout Orientation="Horizontal">
+                                        <Label Text="Avalie seu pedido" FontSize="12" />
+                                            <Image Source="badIcon" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" HorizontalOptions="EndAndExpand" />
+                                            <Image Source="neutralIcon" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" Margin="5,0,5,0" />
+                                            <Image Source="happyIcon" Aspect="AspectFit" HeightRequest="20" WidthRequest="20" />
+                                        </StackLayout>
+                                        <BoxView HeightRequest="1" Color="LightGray" />
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Button Text="Ver detalhes" HorizontalOptions="FillAndExpand" BorderColor="{StaticResource GreenSecundaryColor}" BorderWidth="2" CornerRadius="15" FontSize="12" BackgroundColor="White" TextColor="{StaticResource GreenSecundaryColor}" />
+                                            <Button Text="Refazer Pedido" HorizontalOptions="FillAndExpand" BorderColor="{StaticResource GreenSecundaryColor}" BorderWidth="2" CornerRadius="15" FontSize="12" BackgroundColor="{StaticResource GreenSecundaryColor}" TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>    
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>    
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

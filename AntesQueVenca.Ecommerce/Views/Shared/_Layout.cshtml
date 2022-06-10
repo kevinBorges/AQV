@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Antes Que Vença - @ViewData["Title"]</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="~/assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <link rel="stylesheet" href="~/css/checkoutModalStyle.css">
+
+    @RenderSection("Styles", false)
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXTRSNYCXE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FXTRSNYCXE');
+    </script>
+
+    <!-- Google Tag Manager -->
+    @*<script>
+        (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-WRF3VJ8');</script>*@
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    @*<noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRF3VJ8"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>*@
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- [ Pre-loader ] start -->
+    @await Html.PartialAsync("_Preloader")
+    <!-- [ Pre-loader ] End -->
+    <!-- [ navigation menu ] start -->
+    @*<nav class="pcoded-navbar">
+            @await Html.PartialAsync("_Navigation")
+        </nav>*@
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    @await Html.PartialAsync("_Header")
+
+    <!-- [ Header ] end -->
+    <img src="~/img/makeup.png" style="margin-top:-30%;" class="img img-fluid" id="imagetop" />
+    @await Html.PartialAsync("_Chat")
+
+    <!-- [ Main Content ] start -->
+    @RenderBody()
+    <!-- [ Main Content ] end -->
+    <!-- Warning Section start -->
+    <!-- Older IE warning message -->
+    @await Html.PartialAsync("_IEWarningMessage")
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    @*<script src="~/assets/js/vendor-all.min.js"></script>*@
+
+    @*<script src="~/assets/js/vendor-all.min.js"></script>*@
+
+    <div aria-hidden="true" aria-labelledby="modalCustomAlertTitle" class="modal" id="modalCustomAlert" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCustomAlertTitle"></h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> &times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p style="white-space: pre-line" id="modalCustomAlertMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" id="btnModalCustomAlertConfirmation" onclick="ffModal()" data-dismiss="modal" type="button"> OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ffModal() {
+            $("#modalCustomAlert").on("hidden.bs.modal", function () { $("body").addClass("modal-open"); })
+        }
+
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery-mask/dist/jquery.mask.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/Shared/decimal.js?version=3.4"></script>
+    <script src="~/js/Shared/Main.js?version=3.4"></script>
+    <script src="~/js/Home/ProductList.js?version=3.6"></script>
+    <script src="~/js/cart.js?version=3.4"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+
+<partial name="_Footer" />
+
+</html>

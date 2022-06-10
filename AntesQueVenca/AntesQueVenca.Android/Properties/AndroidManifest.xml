@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="4" android:versionName="1.3" package="com.antesquevenca" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
+	<application android:label="Antes Que Vença" android:icon="@mipmap/icon">
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD5CdaOCOxMb6CXrzu6CvIY1z4T6haS6rM" />
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

@@ -1,0 +1,62 @@
+﻿<header class="navbar pcoded-header navbar-expand-lg navbar-light">
+    @*pcoded-header navbar-expand-lg navbar-light*@
+    @*<div class="m-header fixed-top">
+            <a href="javascript:displayCart();" class="b-brand">
+                <div class="b-bg">
+                    <i class="feather icon-shopping-cart"></i>
+                </div>
+            </a>
+        </div>*@
+
+
+
+    <div id="collapseId" class="collapse navbar-collapse fixed-top" style="background-color:white;">
+        <ul class="navbar-nav img-parceria" style="margin-left:5%;">
+            <li>
+                <img src="~/img/LogoAQV.png" class="img img-fluid" style="max-height: 100px; max-width: 100px;" />
+            </li>
+        </ul>
+        <ul class="navbar-nav img-parceria" style="margin-left:auto;">
+            <li>
+                <img src="~/img/logoTakeo.jpeg" class="img img-fluid" style="max-height:100px; max-width:100px;" /> @*class="float-right" style="margin-right:5%;"*@
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto productFilterNav" style="width:70% !important;">
+            <li style="width:70% !important;">
+                <div class="input-group" style="width:70% !important;">
+                    <input type="text" class="form-control" id="productFilter" name="productFilter" placeholder="Buscar por...">
+                    <div class="input-group-append">
+                        <button class="btn btn-success btn-icon btn-msg-send" type="button" onclick="filter();"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mr-5 cartNav">
+            <li>
+                <div class="dropdown" id="cartDropDown">
+                    <a class="dropdown-toggle" id="dropLink" href="#" data-toggle="dropdown"><i class="icon feather icon-shopping-cart"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right notification" id="cartDropDownMenu">
+                        <div class="noti-head">
+                            <h6 class="d-inline-block m-b-0">Carrinho</h6>
+                            <div class="float-right">
+                                <a href="#!" class="clear-cart">Remover todos</a>
+
+                            </div>
+                        </div>
+                        <div class="wrapper content">
+                            <ul id="cartUl" class="noti-body pre-scrollable">
+                            </ul>
+                        </div>
+
+                        <div class="noti-footer">
+                            Valor Total: <span class="text-c-green total-cart"></span>
+
+                            <p><button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="orderDetails();">Finalizar reserva</button></p>
+                            <p><button type="button" class="btn btn-primary" onclick="javascript: $('#cartDropDownMenu').hide();">Continuar reservando</button></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>

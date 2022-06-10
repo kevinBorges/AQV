@@ -1,0 +1,163 @@
+﻿
+<div id="modalCategoria" class="modal fade bd-example-modal-lg  md-effect-13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">CADASTRAR CATEGORIA</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="exampleInputEmail1">Categoria</label>
+                                <input type="text" class="form-control" id="idCategory" aria-describedby="categoryText" placeholder="Categoria">
+                            </div>
+                            <div class="form-group col-12">
+                                <button type="submit" class="btn btn-primary" onclick="RegisterCategory();">Cadastrar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalCategoriaAtualizar" class="modal fade bd-example-modal-lg  md-effect-13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <span id="idCategoryAlterar" style="display:none;"></span>
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">ATUALIZAR CATEGORIA</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="EraseUpdateData()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="exampleInputEmail1">Categoria</label>
+                                <input type="text" class="form-control" id="CategoryAlterar" aria-describedby="categoryText" placeholder="Categoria">
+                            </div>
+                            <div class="form-group col-12">
+                                <button type="submit" class="btn btn-primary" onclick="UpdateCategory();">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalCategoriaAtualizar" class="modal fade bd-example-modal-lg  md-effect-13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <span id="idCategoryAlterar" style="display:none;"></span>
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">ATUALIZAR CATEGORIA</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="EraseUpdateData()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="exampleInputEmail1">Categoria</label>
+                                <input type="text" class="form-control" id="CategoryAlterar" aria-describedby="categoryText" placeholder="Categoria">
+                            </div>
+                            <div class="form-group col-12">
+                                <button type="submit" class="btn btn-primary" onclick="UpdateCategory();">Atualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalCategoriaDelete" class="modal fade bd-example-modal-lg  md-effect-13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <span id="idCategoryDelete" style="display:none;"></span>
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">ATENÇÃO</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="EraseDeleteData();">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <h6>Deseja excluir a categoria <span id="CategoryDelete"></span>?</h6>
+                            </div>
+                            <div class="form-group col-12">
+                                <button type="button" class="btn btn-primary close" data-dismiss="modal" aria-label="Close" onclick="EraseDeleteData();">Cancelar</button>
+                                <button type="submit" class="btn btn-danger" onclick="DeleteCategory();">Excluir</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/js/Shared/Main.js"></script>
+<script>
+    function RegisterCategory() {
+        var obj = { Name: $("#idCategory").val() };
+        CallMethod('/Category/RegisterCategory', obj, CallbackCategory(), undefined);
+        window.location.reload();
+    }
+
+    function CallbackCategory() {
+        $("#modalCategoria").modal('hide');
+    }
+
+    function UpdateCategory() {
+        var obj = {
+            CategoryId: $("#idCategoryAlterar").val(),
+            Name: $("#CategoryAlterar").val()
+        }
+        CallMethod('/Category/Update', obj, EraseUpdateData(), undefined);
+    }
+
+    function EraseUpdateData(){
+        $("#idCategoryAlterar").val("");
+        $("#CategoryAlterar").val("");
+        $("#modalCategoriaAtualizar").modal('hide');
+        window.location.reload();
+    }
+
+    function DeleteCategory() {
+        var obj = {
+            id: $("#idCategoryDelete").val(),
+        }
+        CallMethod('/Category/Delete', obj, EraseDelete(), undefined);
+    }
+
+    function EraseDelete() {
+        $("#idCategoryDelete").val("");
+        $("#CategoryDelete").text("");
+        $("#modalCategoriaDelete").modal('hide');
+        window.location.reload();
+    }
+ 
+</script>
+
+

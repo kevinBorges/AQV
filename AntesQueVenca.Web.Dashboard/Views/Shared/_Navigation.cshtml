@@ -1,0 +1,41 @@
+﻿<div class="navbar-wrapper">
+    <div class="navbar-brand header-logo">
+        <a href="@Url.Action("Dashboard1", "Dashboard")" class="b-brand">
+            <div class="b-bg">
+                <i class="feather icon-shopping-cart"></i>
+            </div>
+            <span class="b-title">Antes Que Vença</span>
+        </a>
+        <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+    </div>
+    <div class="navbar-content scroll-div">
+        <ul class="nav pcoded-inner-navbar">
+            <li class="nav-item pcoded-menu-caption">
+                <label>Navigation</label>
+            </li>
+            @*<li class="nav-item pcoded-hasmenu">
+                <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                <ul class="pcoded-submenu">
+                    <li><a href="@Url.Action("Dashboard1","Dashboard")" class="">Dashboard</a></li>
+                </ul>
+            </li>*@
+            <li class="nav-item pcoded-hasmenu">
+                <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span><span class="pcoded-mtext">Pedidos</span></a>
+                <ul class="pcoded-submenu">
+                    <li class=""><a href="@Url.Action("OrderList","DashBoard")" class="">Pedidos</a></li>
+                </ul>
+            </li>
+
+            @*<li class="nav-item pcoded-hasmenu">
+                <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-basket"></i></span><span class="pcoded-mtext">Produtos</span></a>
+                <ul class="pcoded-submenu">
+                    <li class=""><a href="@Url.Action("Lista","Products")" class="">Lista</a></li>
+
+                    <li class=""><a href="@Url.Action("Register","Category")" class="">Categorias</a></li>
+
+                </ul>
+            </li>*@
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿<div id="confirmationModalDelivery" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4">Reserva finalizada com sucesso</h5>
+                <button type="button" class="close" data-dismiss="modal" onclick="atlPage()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-1 ml-1">
+                    <div class="form-group">
+                        <span style="font-size: 28px;">Seu código: </span>
+                        <label class="text-success" id="confirmationCodeDelivery" style="font-size: 28px;" />
+                    </div>
+                </div>
+                <h5>Obrigado por reservar com o Antes Que Vença! :)</h5>
+                <h5>Em instantes você receberá um e-mail com a confirmação da reserva, por favor, confira sua caixa de spam.</h5>
+                <h5>Para cancelamento da reserva, <a href="https://api.whatsapp.com/send?phone=5511951466837&text=SAC">clique aqui</a> e entre em contato com nosso canal de comunicação via WhatsApp informando seu CPF e o código da reserva.</h5>
+            </div>
+            <div class="modal-footer">
+                <span style="color:red;">(*) Reserva sujeita à disponibilidade de estoque do VAREJISTA</span>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="atlPage()" aria-label="Close">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function atlPage() {
+        location.reload();
+    }
+</script>

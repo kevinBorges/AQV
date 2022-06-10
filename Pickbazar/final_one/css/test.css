@@ -1,0 +1,45 @@
+.botzvy .popover-handler {
+    display: inline-block;
+    cursor: pointer;
+}
+.iUfaGT {
+    width: auto;
+    height: 38px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(241, 241, 241);
+    padding: 0px 15px;
+    border-radius: 6px;
+    outline: 0px;
+    min-width: 150px;
+    cursor: pointer;
+}
+.iUfaGT span:first-child {
+    margin-right: auto;
+}
+.iUfaGT span {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(0, 158, 127);
+    text-decoration: none;
+}
+.dHkUop {
+    margin-right: 7px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    min-width: 16px;
+}
+.iUfaGT svg {
+    min-width: 15px;
+    max-width: 20px;
+    max-height: 19px;
+}

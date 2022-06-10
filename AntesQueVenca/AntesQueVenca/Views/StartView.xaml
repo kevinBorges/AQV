@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AntesQueVenca.Views.StartView"
+             BackgroundColor="{StaticResource GreenPrincipalColor}"
+             xmlns:customControls="clr-namespace:AntesQueVenca.CustomControls"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Image Source="StartView_Logo" Aspect="AspectFit" Margin="0,40,0,0" />
+            <Image Source="startViewIcone" Aspect="AspectFit" Margin="0,20,0,0" />
+            <Label Text="Onde deseja salvar seu produto?" FontAttributes="Bold" TextColor="White" FontSize="22" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+            <customControls:RoudedBorderedCustomSearchBar BorderColor="{StaticResource OrangePrincipalColor}" BorderWidth="3" CornerRadius="45" IsCurvedCornersEnabled="True" TextColor="White" PlaceholderColor="White" Placeholder="Endereço e número" CancelButtonColor="White" Margin="10,20,10,10" />
+            <Button Text="Ativar minha localização" ImageSource="location.png" CornerRadius="5" BackgroundColor="#E8CE38" TextColor="{StaticResource GreenPrincipalColor}" HorizontalOptions="CenterAndExpand" Margin="10" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

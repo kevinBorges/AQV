@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntesQueVenca.Mobile.Admin.Views.LoginView"
+             xmlns:customControls="clr-namespace:AntesQueVenca.Mobile.Admin.CustomControls"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout WidthRequest="60" BackgroundColor="{StaticResource GreenPrincipalColor}">
+            <Image Source="logoAQV" HeightRequest="110" WidthRequest="190" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,30,0,0"/>
+            <Frame CornerRadius="45" BackgroundColor="White" HasShadow="True">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Fazer login" TextColor="Black" FontSize="30" />
+                        <Label Text="Criar uma conta" TextColor="{StaticResource OrangePrincipalColor}" FontSize="14" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CriarConta_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <customControls:RoudedBorderedCustomEntry PlaceholderColor="Gray" IsCurvedCornersEnabled="True" CornerRadius="5" BorderWidth="2" BackgroundColor="White" BorderColor="LightGray" Placeholder="E-mail ou Telefone" HorizontalTextAlignment="Center" HeightRequest="40" FontSize="12" Margin="0,30,0,0" />
+                    <customControls:RoudedBorderedCustomEntry PlaceholderColor="Gray" IsCurvedCornersEnabled="True" CornerRadius="5" BorderWidth="2" BackgroundColor="White" BorderColor="LightGray" Placeholder="Senha" HorizontalTextAlignment="Center" HeightRequest="40" FontSize="12" IsPassword="True" />
+                    <Label Text="Esquecí minha senha" Margin="0,10,0,10" TextColor="LightGray" HorizontalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EsqueciSenha_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Source="entrarButton" Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="EntrarButton_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

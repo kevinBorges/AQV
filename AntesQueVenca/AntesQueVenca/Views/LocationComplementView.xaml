@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AntesQueVenca.Views.LocationComplementView"
+             Title="Salve seu endereço"
+             Visual="Material">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <!--<maps:Map x:Name="map" IsShowingUser="True" Grid.Row="0">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>-23.3100892</x:Double>
+                                    <x:Double>-46.7223912</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.Pins>
+                    <maps:Pin Label="Sua localização"
+                       Address="Estrada professor Laudelino Alves Ferreia"
+                       Type="Place">
+                        <maps:Pin.Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>-23.3100892</x:Double>
+                                    <x:Double>-46.7223912</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                        </maps:Pin.Position>
+                    </maps:Pin>
+                </maps:Map.Pins>
+            </maps:Map>-->
+            <StackLayout BackgroundColor="{StaticResource GreenPrincipalColor}" Grid.Row="1">
+            <Label Text="Estrada professor Laudelino Alves Ferreia, 10" FontSize="16" TextColor="White" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10">
+                <Label Text="Chácara São Luiz" TextColor="White" FontSize="12" />
+                <Label Text="-" TextColor="White" FontSize="12" />
+                <Label Text="Franco da Rocha" TextColor="White" FontSize="12" />
+                <Label Text="-" TextColor="White" FontSize="12" />
+                <Label Text="SP" TextColor="White" FontSize="12" />
+                <Label Text="-" TextColor="White" FontSize="12" />
+                <Label Text="07865-120" TextColor="White" FontSize="12" />
+            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry TextColor="White" PlaceholderColor="White" Placeholder="Número" Margin="20,0,0,0" HorizontalOptions="FillAndExpand" />
+                    <Entry TextColor="White" PlaceholderColor="White" Placeholder="Complemento" Margin="60,0,0,0" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                    <Entry TextColor="White" PlaceholderColor="White" Placeholder="Ponto de referência" Margin="20,0,0,0" />
+                <Label Text="Salvar endereço como" TextColor="White" Margin="20" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Image Aspect="AspectFit" Source="houseOrangeIcon" WidthRequest="80" HeightRequest="80" />
+                    <Image Aspect="AspectFit" Source="workOrangeIcon" WidthRequest="80" HeightRequest="80" />
+                    <Image Aspect="AspectFit" Source="otherOrangeIcon" WidthRequest="80" HeightRequest="80" />
+                </StackLayout>
+            </StackLayout>
+
+            <FlexLayout Grid.Row="2">
+            <Button FlexLayout.Grow="1" Style="{StaticResource DefaultOrangeButton}" Text="Ver produtos" Clicked="Button_Clicked" Margin="10" />
+            </FlexLayout>
+        
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

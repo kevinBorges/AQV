@@ -1,0 +1,382 @@
+﻿@model IEnumerable<AntesQueVenca.Application.ViewModels.OrderViewModel>
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h5 class="m-b-10">Reservas</h5>
+                                </div>
+                                @*<ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#">Invoice</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Invoice List</a></li>
+                                    </ul>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ Invoice-list ] start -->
+                            @*<div class="col-xl-3 col-lg-12">
+                                    <div class="card task-board-left">
+                                        <div class="card-header">
+                                            <h5>Procurar</h5>
+                                        </div>
+                                        <div class="card-block">
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control add_task_todo" id="consumer" name="consumer" placeholder="Buscar por nome...">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary btn-icon btn-msg-send" type="submit"><i class="fas fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="task-right">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                            <div class="col-xl-12 col-lg-12 filter-bar invoice-list">
+                                <form id="filterForm" asp-action="GetOrdersPartial" asp-controller="Dashboard" method="get" data-ajax="true" data-ajax-method="get" data-ajax-update="#orders" data-ajax-mode='replace' data-ajax-url="@Url.Action("GetOrdersPartial","Dashboard")">
+                                    <nav class="navbar m-b-30 p-10">
+                                        <ul class="nav">
+                                            <li class="nav-item f-text active">
+                                                <a class="nav-link text-secondary" href="#">Filtro: <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item f-text active">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control add_task_todo" id="consumerName" name="consumerName" placeholder="Buscar por nome...">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary btn-icon btn-msg-send" type="submit"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <input type="hidden" id="dateFilter" name="dateFilter" value="" />
+                                                <input type="hidden" id="statusFilter" name="statusFilter" value="" />
+                                                <a class="nav-link dropdown-toggle text-secondary" id="bydate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-clock"></i> Por data de reserva</a>
+                                                <div class="dropdown-menu" aria-labelledby="bydate">
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(1); $('#filterForm').submit()">Todos</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(2); $('#filterForm').submit()">Hoje</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(3); $('#filterForm').submit()">Essa semana</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(4); $('#filterForm').submit()">1 mês</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(5); $('#filterForm').submit()">3 Meses</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#dateFilter').val(6); $('#filterForm').submit()">6 Meses</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle text-secondary" href="#" id="bystatus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-chart-line"></i> Por Status</a>
+                                                <div class="dropdown-menu" aria-labelledby="bystatus">
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(null); $('#filterForm').submit()">Todos</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(1); $('#filterForm').submit()">Pendente</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(2); $('#filterForm').submit()">Retirado</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(5); $('#filterForm').submit()">Entregue</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(3); $('#filterForm').submit()">Cancelado</a>
+                                                    <a class="dropdown-item" href="#" onclick="$('#statusFilter').val(4); $('#filterForm').submit()">Expirado</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </form>
+                                <div id="orders">
+                                    @await Html.PartialAsync("_Orders", Model)
+                                </div>
+                            </div>
+
+                            <!-- [ Invoice-list ] end -->
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="orderDetailsModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="max-width: 90%; width: auto !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4" id="orderTitle">Resumo da compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ Invoice ] start -->
+                            <div class="container" id="printTable">
+                                <div>
+                                    <div class="card">
+                                        <div class="card-block">
+                                            <div class="row invoive-info">
+                                                <div class="col-md-4 col-xs-12 invoice-client-info">
+                                                    <h6>Informações do cliente</h6>
+                                                    <p class="m-0">Nome: <span id="consumerPersonName"></span></p>
+                                                    <p class="m-0">CPF: <span id="consumerCPF"></span></p>
+                                                    <p class="m-0">Contato: <span id="consumerPhone"></span></p>
+                                                    <p>Email: <a class="text-secondary" href="mailto:demo@gmail.com" target="_top"><span id="consumerEmail"></span></a></p>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <h6>Informações da reserva:</h6>
+                                                    <table class="table table-responsive invoice-table invoice-order table-borderless">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th>Formato:</th>
+                                                                <td><text id="Delivery"></text></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Data:</th>
+                                                                <td><span id="orderDate"></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Status:</th>
+                                                                <td>
+                                                                    <span id="orderStatus">Pendente</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Código:</th>
+                                                                <td>
+                                                                    <span id="orderDetailId"></span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <h6 class="m-b-20">Expira em: <span id="orderExpiration"></span></h6>
+                                                    <table class="table table-responsive invoice-table invoice-order table-borderless">
+                                                        <tbody>
+                                                            
+                                                            <tr class="trocoTr endTr">
+                                                                <th>Forma de Pag. :</th>
+                                                                <td>
+                                                                    <span id="infoPag"></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="endTr" style="display:none">
+                                                                <th>Endereço:</th>
+                                                                <td>
+                                                                    <text id="addressRua"> </text>
+                                                                    <br />
+                                                                    <text id="addressCity"></text>
+                                                                    <br />
+                                                                    <text id="addressUf"></text>
+                                                                </td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table  invoice-detail-table">
+                                                            <thead>
+                                                                <tr class="thead-default">
+                                                                    <th>Produto</th>
+                                                                    <th>Descrição</th>
+                                                                    <th>Quantidade</th>
+                                                                    <th>Valor unitário</th>
+                                                                    <th>Total</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="productsTbody">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <table class="table table-responsive invoice-table invoice-total">
+                                                        <tbody>
+                                                            <tr class="text-info">
+                                                                <td>
+                                                                    <h5 class="text-primary m-r-10">Total :</h5>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="text-primary"><span id="orderTotalPrice"></span></h5>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- [ Invoice ] end -->
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div><!--- modal body end  -->
+            <div class="modal-footer">
+                <div class="row text-center">
+                    <div class="col-sm-12 invoice-btn-group text-center">
+                        @*<button type="button" class="btn btn-primary btn-print-invoice m-b-10">Imprimir</button>*@
+                        <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- [ Main Content ] end -->
+
+@section Styles{
+
+}
+
+@section Scripts{
+    <!-- invoice-list js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/assets/js/pages/invoice-list.js"></script>
+
+}
+<script src="~/js/Shared/Main.js"></script>
+<script>
+    function OrderDetails(id) {
+        CallMethod('/Dashboard/GetOrderById/' + id, null, success, error);
+    }
+
+    function success(data) {
+        if (data.Success) {
+            $("#orderDetailId").text('#' + data.Retorno.OrderId);
+            $("#Delivery").text(data.Retorno.Delivery);
+            if ($("#Delivery").text() == "Delivery") {
+                if (data.Retorno.PaymentType == 1) {
+                    $("#infoPag").text("Dinheiro - Troco para: " + data.Retorno.Thing);
+                }
+                else if (data.Retorno.PaymentType == 2)
+                    $("#infoPag").text("Pix");
+                else if (data.Retorno.PaymentType == 3)
+                    $("#infoPag").text("Cartão de Crédito");
+                else if (data.Retorno.PaymentType == 4)
+                    $("#infoPag").text("Cartão de Débito");
+
+                var TipoEnd = "";
+                if (data.Retorno.Consumer.Person.Address.AddressType == 1)
+                    TipoEnd = "Casa";
+                if (data.Retorno.Consumer.Person.Address.AddressType == 2)
+                    TipoEnd = "Apartamento";
+                if (data.Retorno.Consumer.Person.Address.AddressType == 3)
+                    TipoEnd = "Comercial";
+                if (data.Retorno.Consumer.Person.Address.AddressType == 4)
+                    TipoEnd = "Outro";
+
+                /*$("#Delivery").css('margin-left', '-130%');*/
+                $(".endTr").css('display', 'block');
+                $("#addressRua").text(data.Retorno.Consumer.Person.Address.Street + ",");
+                $("#addressCity").text("N° " +
+                    data.Retorno.Consumer.Person.Address.Number + ", " +
+                    TipoEnd + " - " +
+                    data.Retorno.Consumer.Person.Address.PostalCode);
+                
+                $("#addressUf").text(
+                    data.Retorno.Consumer.Person.Address.Neighborhood + " - " +
+                    data.Retorno.Consumer.Person.Address.CityName + "/" +
+                    data.Retorno.Consumer.Person.Address.UF);
+            } else {
+                $(".endTr").css('display', 'none');
+                /*$("#Delivery").css('margin-left', '-10px');*/
+                $("#addressRua").text("");
+                $("#addressCity").text("");
+
+            }
+
+            
+
+            $("#orderTotalPrice").text(Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(data.Retorno.TotalPrice));
+            $("#orderExpiration").text(data.Retorno.WithdrawDate);
+            $("#orderDate").text(data.Retorno.CriadoEm);
+            if (data.Retorno.Status == 1)
+                $("#orderStatus").text('Pendente');
+            else if (data.Retorno.Status == 2)
+                $("#orderStatus").text('Retirado');
+            else if (data.Retorno.Status == 3)
+                $("#orderStatus").text('Cancelado');
+            else if (data.Retorno.Status == 4)
+                $("#orderStatus").text('Devolvido');
+            else if (data.Retorno.Status == 5)
+                $("#orderStatus").text('Entregue');
+
+
+            $("#orderStatus").removeClass().addClass(data.Retorno.StatusClass);
+            $("#consumerPersonName").text(data.Retorno.Consumer.Person.Name);
+            $("#consumerCPF").text(data.Retorno.Consumer.Person.CPF);
+            $("#consumerEmail").text(data.Retorno.Consumer.Person.Email);
+            $("#consumerPhone").text(data.Retorno.Consumer.Person.Phone);
+
+            var html = "";
+            for (var i in data.Retorno.Products) {
+                html += "<tr>";
+                html += "<td>";
+                html += "<img class='img-responsive' width='100' height='100' id='img-" + data.Retorno.Products[i].Product.ProductId + "' src='" + data.Retorno.Products[i].Product.Image + "' alt='" + data.Retorno.Products[i].Product.Name + "'>";
+                html += "</td>";
+
+                html += "<td>";
+                html += "<h6>" + data.Retorno.Products[i].Product.Name + "</h6>";
+                html += "</td>";
+
+                html += "<td>";
+                html += "<span>" + data.Retorno.Products[i].Quantity + "</span>";
+                html += "</td>";
+
+                html += "<td>";
+                html += "<span>" + Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(data.Retorno.Products[i].Price) + "</span>";
+                html += "</td>";
+
+                html += "<td>";
+                html += "<span> " + Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format( data.Retorno.Products[i].AmountTotalItem) + "</span>";
+                html += "</td>";
+                html += "</tr>";
+            }
+            $("#productsTbody").html(html);
+
+            $("#orderDetailsModal").modal();
+        }
+        else {
+            alert('Erro ao consultar compra');
+        }
+    }
+
+    function error() {
+        alert('Desculpe, ocorreu um erro.');
+    }
+
+    function updateOrderStatus(statusId, orderId) {
+        CallMethod('/Dashboard/UpdateOrderStatus?statusId=' + statusId + '&orderId=' + orderId, null, updateOrderSuccess, error);
+    }
+
+    function updateOrderSuccess(data) {
+        if (data.Success) {
+            location.reload();
+        }
+        else {
+            alert(data.Message);
+            location.reload();
+        }
+    }
+</script>

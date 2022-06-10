@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewData["Title"] = "Grid";
+}
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                @*<div class="page-header-title">
+                                        <h5 class="m-b-10">gallery grid</h5>
+                                    </div>*@
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="@Url.Action("Dashboard1","Dashboard")"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#!">Produtos</a></li>
+                                    <li class="breadcrumb-item"><a href="#!">Lista</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <!-- [ Gallery-Grid ] start -->
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Filtros</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-xl-4 col-md-6 mb-5">
+                                                <p>Categorias</p>
+                                                <select class="js-example-basic-multiple col-sm-12" multiple="multiple">
+                                                    <option value="AL">Achocolatado</option>
+                                                    <option value="WY">Leite em Pó</option>
+                                                    <option value="WY">Sabão em Pó</option>
+                                                    <option value="WY">Biscoito</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Lista de Produtos</h5>
+
+                                        @*// new product  *@
+                                        <button type="button" class="btn btn-primary" style="margin-left:90%;" data-toggle="modal" data-target=".bd-example-modal-lg">Novo Produto</button>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/nescau.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Nescau 2.0</h5>
+                                                        <p>Achocolatado Em Pó Nestlé</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>3 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 3,00</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/leite-ninho.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Leite Ninho Instantâneo</h5>
+                                                        <p>Leite em Pó</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>1 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 8,99</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/sabao-po.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Caixas Sabão Em Pó Omo </h5>
+                                                        <p>Sabão em pó Concentrado</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>6 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 5,20</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/passatempo.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Passatempo Nestlé</h5>
+                                                        <p>Biscoito Recheado Sabor Chocolate</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>8 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 1,19</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/nescau.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Nescau 2.0</h5>
+                                                        <p>Achocolatado Em Pó Nestlé</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>3 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 3,00</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/leite-ninho.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Leite Ninho Instantâneo</h5>
+                                                        <p>Leite em Pó</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>1 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 8,99</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/sabao-po.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Caixas Sabão Em Pó Omo </h5>
+                                                        <p>Sabão em pó Concentrado</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>6 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 5,20</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4">
+                                                <div class="card">
+                                                    <img class="card-img-top products" src="~/assets/images/product/passatempo.jpg" alt="Card image">
+                                                    <div class="card-block">
+                                                        <h5 class="job-card-desc">Passatempo Nestlé</h5>
+                                                        <p>Biscoito Recheado Sabor Chocolate</p>
+                                                        <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>8 unidades</div>
+                                                        <div class="job-meta-data"><i class="far fa-handshake"></i>R$ 1,19</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- [ Gallery-Grid ] end -->
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@await Html.PartialAsync("_NewProduct")
+<!-- [ Main Content ] end -->
+
+@section Styles{
+    <!-- select2 css -->
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+    <!-- multi-select css -->
+    <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
+    <!--lightbox css -->
+    <link rel="stylesheet" href="~/assets/plugins/lightbox2-master/css/lightbox.min.css">
+    <style>
+        .products {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: contain;
+            margin-left: 20%;
+        }
+    </style>
+}
+
+@section Scripts{
+    <!-- Input mask Js -->
+    <script src="~/assets/plugins/inputmask/js/inputmask.min.js"></script>
+    <script src="~/assets/plugins/inputmask/js/jquery.inputmask.min.js"></script>
+    <script src="~/assets/plugins/inputmask/js/autoNumeric.js"></script>
+
+    <!-- form-picker-custom Js -->
+    <script src="~/assets/js/pages/form-masking-custom.js"></script>
+
+
+    <!-- select2 Js -->
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- multi-select Js -->
+    <script src="~/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+    <script src="~/assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- form-select-custom Js -->
+    <script src="~/assets/js/pages/form-select-custom.js"></script>
+
+    <!--lightbox Js -->
+    <script src="~/assets/plugins/lightbox2-master/js/lightbox.min.js"></script>
+
+    <!-- modal-window-effects Js -->
+    <script src="~/assets/plugins/modal-window-effects/js/classie.js"></script>
+    <script src="~/assets/plugins/modal-window-effects/js/modalEffects.js"></script>
+    <!-- modal-window-effects css -->
+    <link rel="stylesheet" href="~/assets/plugins/modal-window-effects/css/md-modal.css">
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+
+
+
+    </script>
+}
+

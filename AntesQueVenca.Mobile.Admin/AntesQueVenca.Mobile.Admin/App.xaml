@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntesQueVenca.Mobile.Admin.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="GreenPrincipalColor">#6DEDBD</Color>
+            <Color x:Key="GreenSecundaryColor">#337568</Color>
+            <Color x:Key="OrangePrincipalColor">#E68000</Color>
+            <Style x:Key="DefaultOrangeButton" TargetType="Button">
+                <Setter Property="BackgroundColor">#E68000</Setter>
+                <Setter Property="BackgroundColor">#E68000</Setter>
+                <Setter Property="TextColor">White</Setter>
+                <Setter Property="CornerRadius">15</Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

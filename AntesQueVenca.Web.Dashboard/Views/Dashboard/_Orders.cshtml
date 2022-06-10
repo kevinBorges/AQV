@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AntesQueVenca.Application.ViewModels.OrderViewModel>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-12">
+            <div class="@item.CardClass">
+                <div class="card-block">
+                    <div class="row col-sm-12">
+                        <h5 class="col-sm-12">@item.Consumer.Person.Name</h5>
+                        <center>
+
+                            <div class="dropdown-secondary dropdown">
+                                <span>Status : </span>
+                                <select asp-for="@item.Status" asp-items="Html.GetEnumSelectList<AntesQueVenca.Domain.Enuns.OrderStatusEnum>()" onchange="updateOrderStatus(this.value, @item.OrderId)" class="@item.StatusClass"></select>
+                            </div>
+                        </center>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list list-unstyled">
+                                <li>Reserva #: &nbsp;@item.OrderId</li>
+                                <li>Reservado em: <span class="text-semibold">@item.CreatedDate</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list list-unstyled text-right">
+                                <li>Total: <span class="text-semibold">R$ @item.TotalPrice</span></li>
+                                <li>Formato: <span class="text-semibold">@item.Delivery</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m-t-30">
+                        <div class="task-list-table">
+                            <p class="task-due"><strong> Expira em: </strong><strong class="@item.StatusClass">@item.CreatedDate.AddDays(2)</strong></p>
+                        </div>
+                        <div class="task-board m-0 float-right">
+                            <a href="#" onclick="OrderDetails(@item.OrderId);" class="@item.StatusClass"><i class="fas fa-eye m-0"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

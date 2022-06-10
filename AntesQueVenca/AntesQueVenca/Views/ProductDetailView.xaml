@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntesQueVenca.Views.ProductDetailView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="60" Orientation="Horizontal" BackgroundColor="{StaticResource GreenPrincipalColor}">
+                <Image Source="whiteBackButton" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="15,0,20,0" />
+                <Label TextColor="White" FontAttributes="Bold" FontSize="18" Text="Nome do produto" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <Image Source="shoppingCartIcon" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="0,0,15,0" />
+            </StackLayout>
+            <Image Source="AQVIcone" HeightRequest="32" WidthRequest="32" Aspect="AspectFit" HorizontalOptions="StartAndExpand" Margin="20,20,0,0" />
+            <Label TextColor="{StaticResource GreenPrincipalColor}" FontSize="12" Text="300 m" HorizontalOptions="StartAndExpand" Margin="20,0,0,0" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="10 un." TextColor="Red" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+                <Image Source="AQVIcone" HeightRequest="150" WidthRequest="150" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" />
+                <Image Source="shareIcon" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" />
+            </StackLayout>
+            <Label FontSize="10" Text="*** 7 dias para vencer" TextColor="Black" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+
+            <Label FontSize="13" FontAttributes="Bold,Italic" Text="Creme de Leite Italac 200g"  TextColor="{StaticResource GreenPrincipalColor}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,-12"/>
+            <Label FontSize="10" FontAttributes="Bold" Text="..............................................................................................." HorizontalOptions="CenterAndExpand"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="10"  Text="de" TextColor="{StaticResource GreenPrincipalColor}" Margin="150,0,0,0" />
+                <Label FontSize="10" FontAttributes="Bold" Text="R$ 12,00" TextDecorations="Strikethrough" TextColor="{StaticResource GreenPrincipalColor}"  Margin="-2,0,0,0" />
+                <Label FontSize="10"  Text="por" TextColor="{StaticResource GreenPrincipalColor}"  Margin="-2,0,0,0" />
+                <Label FontSize="13" FontAttributes="Bold"     Text="R$ 06,00" TextColor="{StaticResource OrangePrincipalColor}" Margin="-2,-3,0,0" />
+            </StackLayout>
+            <Label FontSize="10" FontAttributes="Bold" Text="..............................................................." HorizontalOptions="CenterAndExpand" Margin="0,-13,0,0"/>
+
+            <StackLayout HeightRequest="50" VerticalOptions="Start">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" HeightRequest="30">
+                    <Button WidthRequest="30" Text="-" TextColor="White" FontSize="25"   Padding="0,-3,0,0" BackgroundColor="{StaticResource GreenPrincipalColor}" Margin="0,0,0,0"/>
+                    <Label Text="2" TextColor="{StaticResource GreenPrincipalColor}"  FontSize="18" FontAttributes="Bold" Margin="20,0,20,0"/>
+                    <Button Text="+" TextColor="White" FontSize="20"   WidthRequest="30"  Padding="0,0,0,0" BackgroundColor="{StaticResource GreenPrincipalColor}" Margin="0,0,0,0"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HeightRequest="30" VerticalOptions="Start" Margin="60,0,60,0">
+                <Button  Style="{StaticResource DefaultOrangeButton}" HeightRequest="35" FontAttributes="Bold" Text="Adicionar"  FontSize="12" Margin="0,-3,0,0" />
+            </StackLayout>
+            <BoxView HeightRequest="1" VerticalOptions="Start" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" Margin="0,0,0,-5"/>
+            <StackLayout HeightRequest="1"  VerticalOptions="Start">
+                <Label Text="DETALHES" FontSize="13" TextColor="#1F5736" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                <Label Margin="10,0,10,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontSize="8" TextColor="#1f5736" Text="Delicioso Creme de Leite em caixinha, rico em cremosidade, sabor e consistência. Versátil, pode ser consumido puro ou em preparações doces e salgadas. Modo de Preparo Agite antes de usar. Conservação O Creme de Leite Nestlé não necessita refrigeração. Após aberto se o produto não for totalmente utilizado, guarde na geladeira. Assim ele permanecerá bom para o consumo até o prazo de 2 dias. Ingredientes Creme de leite, leite em pó desnatado, espessante goma xantana e estabilizantes fosfato dissódico e citrato de sódio. Não Contém Glúten." />                          
+                            
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <StackLayout HeightRequest="100" VerticalOptions="EndAndExpand" >
+                <BoxView HeightRequest="1" VerticalOptions="Start" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+                <Label Text="ENTREGA OU RETIRADA" FontSize="11" TextColor="#1F5736" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
